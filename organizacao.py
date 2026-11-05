@@ -7,5 +7,5 @@ def sistema_do_sensor(nome_sensor):
     return sensores[nome_sensor]["sistema"]
 
 if __name__ == "__main__":
-    print(sensores_do_sistema("Sistema Energetico"))
+    print(sensores_do_sistema("Sistema Energético"))
     print(sistema_do_sensor("vento"))

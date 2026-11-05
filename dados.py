@@ -1,7 +1,7 @@
 
 sensores = {
-    "ge_solar":  {"nome": "Geração Solar", "sistema": "Sistema Energetico", "unidade": "MWh"},
-    "ge_eolica": {"nome": "Geração Eolica", "sistema": "Sistema Energetico", "unidade": "MWh"},
+    "ge_solar":  {"nome": "Geração Solar", "sistema": "Sistema Energético", "unidade": "MWh"},
+    "ge_eolica": {"nome": "Geração Eólica", "sistema": "Sistema Energético", "unidade": "MWh"},
     "temp_int": {"nome": "Temperatura Interna", "sistema": "Sistema Ambiental", "unidade": "°C"},
     "temp_ext": {"nome": "Temperatura Externa", "sistema": "Sistema Ambiental", "unidade": "°C"},
     "vento": {"nome": "Velocidade do vento", "sistema": "Sistema Ambiental", "unidade": "m/s"},
@@ -20,7 +20,7 @@ historico = [
 ]
 
 sistemas = {
-    "Sistema Energetico": ["ge_solar", "ge_eolica"],
+    "Sistema Energético": ["ge_solar", "ge_eolica"],
     "Sistema Ambiental": ["temp_int", "temp_ext", "vento"],
     "Sistema Operacional": ["consumo"]
 }

@@ -13,7 +13,7 @@ def avaliar_dia(dia):
     elif total < dia["consumo"] and dia["vento"] < 8:
         return "ALERTA: falta energia e o vento está fraco, reduzir consumo"
     elif total < dia["consumo"]:
-        return "AVISO: consumo acima da geração"
+        return "AVISO: consumo acima da geração, reduzir consumo"
     else:
         return "Sistema normal"
 

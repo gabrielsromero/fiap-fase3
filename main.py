@@ -4,7 +4,7 @@ from decisoes import geracao_total, avaliar_dia
 from previsao import media, calcular_reta, prever, ventos, eolicas
 from energia import analisar_energia
 
-print("=== SISTEMA DA COLÔNIA AURORA ===")
+print("=== SISTEMA DA COLÔNIA - MISSÃO AURORA SIGER ===")
 
 # 1. Organização dos dados: navegação entre sistemas e sensores
 print("\n--- 1. Sistemas e sensores ---")
@@ -21,6 +21,11 @@ for dia in historico:
 print("\n--- 3. Previsão (regressão linear) ---")
 b1, b0 = calcular_reta(ventos, eolicas)
 print("Reta: energia =", round(b0, 2), "+", round(b1, 2), "x vento")
+print("Previsão para vento 11 m/s:", round(prever(11, b1, b0), 2), "MWh")
+
+# validação: reta feita só com os dias 1 a 6, prevendo o dia 7
+b1_val, b0_val = calcular_reta(ventos[:6], eolicas[:6])
+print("Validação: dia 7 previsto", round(prever(ventos[6], b1_val, b0_val), 2), "MWh | real", eolicas[6], "MWh")
 
 # 4. Análise do uso de energia: geração x consumo
 print("\n--- 4. Análise de energia (7 dias) ---")
@@ -39,8 +44,12 @@ for dia in historico:
 solar_media = media(solares)
 consumo_medio = media(consumos)
 
+# ventos de teste para amanhã (valores fixos, um para cada caso da análise)
 for vento_amanha in [7, 11, 15]:
     eolica_prevista = prever(vento_amanha, b1, b0)
     geracao_prevista = eolica_prevista + solar_media
-    print("Vento", vento_amanha, "m/s: geração prevista", round(geracao_prevista, 2),
-          "| consumo médio", round(consumo_medio, 2), "|", analisar_energia(geracao_prevista, consumo_medio))
+    saldo = geracao_prevista - consumo_medio
+    print("Vento", vento_amanha, "m/s: eólica prevista", round(eolica_prevista, 2),
+          "| geração prevista", round(geracao_prevista, 2),
+          "| consumo médio", round(consumo_medio, 2),
+          "| saldo", round(saldo, 2), "|", analisar_energia(geracao_prevista, consumo_medio))
