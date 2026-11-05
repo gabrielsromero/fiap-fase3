@@ -114,10 +114,10 @@ Regressão linear simples (vento → energia eólica), calculada na mão com o m
 ![Gráfico da regressão](grafico_regressao.png)
 
 ## Limitações
-- A potência do vento cresce com o cubo da velocidade, e a turbina tem velocidade de partida, nominal (cerca de 10 a 15 m/s, onde a geração para de crescer) e de corte. A reta não considera nada disso, então só vale na faixa dos dados (6 a 13 m/s).
+- A potência do vento cresce com o cubo da velocidade, e a turbina tem velocidade de partida, nominal (cerca de 10 a 15 m/s, onde a geração para de crescer) e de corte. A reta não considera nada disso: ela encaixa nos dados porque o histórico foi montado assim, e não deve ser usada fora da faixa dos dados (6 a 13 m/s).
 - O histórico tem só 7 dias e foi montado a partir do exemplo do enunciado, por isso o R² ficou quase perfeito.
 - A previsão para amanhã usa a média da solar e do consumo, o que ignora que no histórico a solar cai quando o vento sobe e esconde picos de consumo.
 - Temperatura externa, estado dos sensores e bateria ainda não têm dados e ficam como melhoria futura.
 
 ## Relatório
-O relatório em PDF explica como os dados foram organizados, as regras, o modelo de previsão e a análise de energia.
+O relatório em PDF, entregue na plataforma da FIAP, explica como os dados foram organizados, as regras, o modelo de previsão e a análise de energia.
